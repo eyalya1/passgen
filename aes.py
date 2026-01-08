@@ -27,8 +27,7 @@ key = kdf.derive(aes_password)
 iv = os.urandom(12)  
 
 aesgcm = AESGCM(key)
-ciphertext = aesgcm.encrypt(iv, generated_password.encode('utf-8'), None)  # `None` for additional authenticated data (AAD)
-
+ciphertext = aesgcm.encrypt(iv, generated_password.encode('utf-8'), None)  
 filename = input("Enter file name to save the encrypted password\n")
 if not filename.endswith(".txt"):
     filename += ".txt"
